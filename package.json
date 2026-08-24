@@ -1,0 +1,16 @@
+{
+  "name": "md-viewer",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "tauri": "tauri",
+    "build": "tauri build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  },
+  "dependencies": {
+    "markdown-it": "^14",
+    "@highlightjs/cdn-assets": "^11"
+  }
+}

@@ -1,0 +1,29 @@
+[package]
+name = "md-viewer"
+version = "1.0.0"
+description = "A fast, minimal Markdown reader for Windows"
+authors = ["Metwalley"]
+edition = "2021"
+
+[lib]
+name = "md_viewer_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-single-instance = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+encoding_rs = "0.8"
+open = "5"
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"

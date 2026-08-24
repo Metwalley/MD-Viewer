@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MD-Viewer</title>
+  <link rel="stylesheet" href="vendor/hljs-theme.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="titlebar">
+    <div class="app-brand" data-tauri-drag-region>
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="1.5" y="4.5" width="29" height="23" rx="5" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <path d="M8 21v-9l4.2 5 4.2-5v9" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M23.5 12v8.2m0 0l-3.4-3.4m3.4 3.4l3.4-3.4" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span data-tauri-drag-region>MD-Viewer</span>
+    </div>
+    <div id="tabs" data-tauri-drag-region role="tablist"></div>
+    <button id="new-tab" title="Open a file (Ctrl+O)">+</button>
+    <div class="title-drag" data-tauri-drag-region></div>
+    <div id="window-controls">
+      <button id="btn-min" title="Minimize" tabindex="-1">&#x2500;</button>
+      <button id="btn-max" title="Maximize" tabindex="-1">&#x25A1;</button>
+      <button id="btn-close" title="Close" tabindex="-1">&#x2715;</button>
+    </div>
+  </div>
+
+  <div id="toolbar">
+    <button id="btn-open" class="tool-btn" title="Open a Markdown file (Ctrl+O)">Open</button>
+    <div id="crumb" data-tauri-drag-region></div>
+    <div id="mode-toggle" class="segmented" role="tablist" aria-label="View mode">
+      <button id="mode-preview" class="seg active">Preview</button>
+      <button id="mode-code" class="seg">Code</button>
+    </div>
+  </div>
+
+  <div id="content">
+    <div id="preview" class="hidden"><div class="markdown-body" id="md-body"></div></div>
+    <div id="codeview" class="hidden">
+      <div id="gutter"></div>
+      <textarea id="editor" spellcheck="false" wrap="off" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+    </div>
+    <div id="empty-state">
+      <div class="empty-logo">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="1.5" y="4.5" width="29" height="23" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M8 21v-9l4.2 5 4.2-5v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M23.5 12v8.2m0 0l-3.4-3.4m3.4 3.4l3.4-3.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="empty-title">Drop Markdown files here</div>
+      <div class="empty-hint"><kbd>Ctrl</kbd> + <kbd>O</kbd> to browse &middot; multiple files open as tabs</div>
+    </div>
+  </div>
+
+  <div id="statusbar">
+    <div id="status-path"></div>
+    <div id="status-info"></div>
+  </div>
+
+  <div id="modal-backdrop" class="hidden">
+    <div id="modal" role="dialog" aria-modal="true">
+      <div id="modal-msg"></div>
+      <div id="modal-buttons">
+        <button id="modal-cancel" class="modal-btn">Cancel</button>
+        <button id="modal-ok" class="modal-btn primary">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/markdown-it.min.js"></script>
+  <script src="vendor/highlight.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

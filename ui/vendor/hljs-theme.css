@@ -1,0 +1,12 @@
+.hljs { color: #cdd3dc; background: transparent; }
+.hljs-comment, .hljs-quote { color: #767c87; font-style: italic; }
+.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-doctag { color: #84a8d4; }
+.hljs-string, .hljs-regexp, .hljs-addition { color: #9fbf8f; }
+.hljs-number, .hljs-symbol, .hljs-bullet, .hljs-meta { color: #cfa57e; }
+.hljs-title, .hljs-section, .hljs-selector-id, .hljs-selector-class { color: #d9c08c; }
+.hljs-attr, .hljs-attribute, .hljs-variable, .hljs-template-variable,
+.hljs-type, .hljs-built_in, .hljs-builtin-name { color: #8fc7c2; }
+.hljs-name, .hljs-tag { color: #84a8d4; }
+.hljs-deletion { color: #e08c85; }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 700; }
